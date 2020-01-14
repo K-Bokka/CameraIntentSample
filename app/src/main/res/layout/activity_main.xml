@@ -7,4 +7,4 @@
   android:layout_gravity="center"
   android:onClick="onCameraImageClick"
   android:scaleType="center"
-  app:srcCompact="@android:drawable/ic_menu_camera" />
+  app:srcCompat="@android:drawable/ic_menu_camera" />
