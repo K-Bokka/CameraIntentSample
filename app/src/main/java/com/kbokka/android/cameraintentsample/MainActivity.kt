@@ -3,6 +3,7 @@ package com.kbokka.android.cameraintentsample
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+  private var _imageUri: Uri? = null
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
@@ -18,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
   public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
-      val bitmap = data?.getParcelableExtra<Bitmap>("data")
-      findViewById<ImageView>(R.id.ivCamera).setImageBitmap(bitmap)
+      val ivCamera = findViewById<ImageView>(R.id.ivCamera)
+      ivCamera.setImageURI(_imageUri)
 
       super.onActivityResult(requestCode, resultCode, data)
     }
