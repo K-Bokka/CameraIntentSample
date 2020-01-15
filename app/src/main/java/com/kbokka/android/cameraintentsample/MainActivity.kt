@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     ) {
       val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
       ActivityCompat.requestPermissions(this, permissions, 200)
+      return
     }
 
     val dateFormat = SimpleDateFormat("yyyyMMddHHmmss")
